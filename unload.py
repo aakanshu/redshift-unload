@@ -69,7 +69,7 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         )
     ) ORDER BY rn')
     TO '{8}'
-    CREDENTIALS 'aws_access_key_id={6};aws_secret_access_key={7}'
+    CREDENTIALS 'AWS_ACCESS_KEY_ID={6};AWS_SECRET_ACCESS_KEY={7}'
     {9}
     """
 
@@ -80,8 +80,8 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         '{}.'.format(schema_name) if schema_name else '',
         tablename,
         where_clause,
-        config['aws_access_key_id'],
-        config['aws_secret_access_key'],
+        config['AWS_ACCESS_KEY_ID'],
+        config['AWS_SECRET_ACCESS_KEY'],
         file_path,
         unload_options
     )
