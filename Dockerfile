@@ -1,8 +1,9 @@
 FROM python:2.7.13-alpine3.6
 MAINTAINER Thomas Spicer <thomas@openbridge.com>
 
-ENV LANG C.UTF-8
+CMD /unload.py
 
+ENV LANG C.UTF-8
 ENV PY_DEPS \
       curl \
       postgresql-dev \
@@ -27,4 +28,3 @@ RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /et
     && rm -Rf /tmp/* \
     && apk del .build-deps
 COPY . /
-CMD ["python2"]
