@@ -7,9 +7,9 @@ This script automatically retrieves and adds headers to the file before output, 
 Everything is built into the container, including [`psycopg2`](http://initd.org/psycopg/docs/install.html) and other OS and Python packages. You will need to have connection details to your Redshift host and the AWS credentials to write the `UNLOADED` data to an S3 bucket.
 
 ## Installing
-To get the image, you need to have Docker installed. Once installed, you can get the image by pulling from [`Docker Hub`](https://hub.docker.com/r/openbridge/ob_redshift_unload/)
+To get the image, you need to have Docker installed. Once installed, you can get the image by pulling from [`Artifactory`](https://artifactory.gameofloans.com/)
 ```
-docker pull openbridge/ob_redshift_unload
+docker pull docker.gameofloans.com/datascience/redshift-unload
 ```
 
 ### Setup Your Configuration File
@@ -58,7 +58,7 @@ One important note is that you need to pass the configuration file into the cont
 
 Running it via Docker command:
 ```python
-docker run -it -v /local/path/to/my/config.json:/config.json openbridge/ob_redshift_unload python /unload.py -t mytable -f s3://dest-bucket/foo/bar/output_file.csv -r datecol -r1 2017-01-01 -r2 2017-06-01
+docker run -it -v /local/path/to/my/config.json:/config.json docker.gameofloans.com/datascience/redshift-unload -t mytable -f s3://dest-bucket/foo/bar/output_file.csv -r datecol -r1 2017-01-01 -r2 2017-06-01
 ```
 
 You can also EXEC into the container which allows you to run it as well.
