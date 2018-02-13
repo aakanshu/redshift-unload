@@ -1,13 +1,13 @@
 {
     "db": {
-        "host": "redshift.myhost.com",
+        "host": null,
         "port": "5439",
-        "database": "mydb",
-        "user": "user",
-        "password": "password123456789"
+        "database": null,
+        "user": null,
+        "password": null
     },
-    "aws_access_key_id": "123131231231232131",
-    "aws_secret_access_key": "123123131313131232131",
+    "aws_access_key_id": null,
+    "aws_secret_access_key": null,
     "unload_options": [
     	"ADDQUOTES",
     	"PARALLEL OFF",
