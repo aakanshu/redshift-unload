@@ -1,7 +1,7 @@
 FROM python:2.7.13-alpine3.6
 MAINTAINER Thomas Spicer <thomas@openbridge.com>
 
-CMD /unload.py
+ENTRYPOINT ["python", "/unload.py"]
 
 ENV LANG C.UTF-8
 ENV PY_DEPS \
