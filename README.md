@@ -13,7 +13,19 @@ docker pull openbridge/ob_redshift_unload
 ```
 
 ### Setup Your Configuration File
-With the Docker image pulled you need to create a configuration file. The script requires a configuration file named `config.json` in the same directory. The config file is comprised of the following parameters set here to obtain database connection info, AWS credentials and any `UNLOAD` options you prefer to use.
+With the Docker image pulled you need to create a configuration file. The script requires a configuration file named `config.json` in the same directory. The config file is comprised of the following parameters set here to obtain database connection info, AWS credentials and any `UNLOAD` options you prefer to use. However, you may also consider using Environment Variables.
+
+#### Environment Variables
+
+Since Docker works better with Environment variables, all 'db' options and the 'aws_\*' options can be set with environment variables:
+
+- DB_HOST
+- DB_PORT
+- DB_DATABASE
+- DB_USER
+- DB_PASSWORD
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
 
 #### Example Configuration File
 A sample configuration file is below.
