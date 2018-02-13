@@ -69,7 +69,7 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         )
     ) ORDER BY rn')
     TO '{8}'
-    CREDENTIALS 'AWS_ACCESS_KEY_ID={6};AWS_SECRET_ACCESS_KEY={7}'
+    CREDENTIALS 'aws_access_key_id={6};aws_secret_access_key={7}'
     {9}
     """
 
@@ -80,8 +80,8 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         '{}.'.format(schema_name) if schema_name else '',
         tablename,
         where_clause,
-        config['AWS_ACCESS_KEY_ID'],
-        config['AWS_SECRET_ACCESS_KEY'],
+        config['aws_access_key_id'],
+        config['aws_secret_access_key'],
         file_path,
         unload_options
     )
@@ -96,7 +96,7 @@ def update_config_from_env(config, env):
         if env_val is not None:
             config['db'][key] = env_val
 
-    for key in ('AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'):
+    for key in ('aws_access_key_id', 'aws_secret_access_key'):
         env_val = os.environ.get(key)
         if env_val is not None:
             config[key] = env_val
