@@ -96,7 +96,7 @@ def update_config_from_env(config, env):
         if env_val is not None:
             config['db'][key] = env_val
 
-    for key in ('aws_access_key_id', 'aws_secret_access_key'):
+    for key in ('AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'):
         env_val = os.environ.get(key)
         if env_val is not None:
             config[key] = env_val
