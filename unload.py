@@ -92,12 +92,12 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
 
 def update_config_from_env(config, env):
     for key in config.get('db'):
-        env_val = os.environ.get('DB_{}'.format(key.upper()))
+        env_val = env.get('DB_{}'.format(key.upper()))
         if env_val is not None:
             config['db'][key] = env_val
 
     for key in ('aws_access_key_id', 'aws_secret_access_key'):
-        env_val = os.environ.get(key)
+        env_val = env.get(key.upper())
         if env_val is not None:
             config[key] = env_val
 
