@@ -117,8 +117,8 @@ def main():
     parser.add_argument('-f', help='Desired S3 file path', dest='file_path')
     parser.add_argument('-s', help='SQL WHERE clause', dest='sql_file', default=None)
     parser.add_argument('-r', help='Range column', dest='range_col', default=None)
-    parser.add_argument('-r1', help='Range start', dest='range_start', default=None)
-    parser.add_argument('-r2', help='Range end', dest='range_end', default=None)
+    parser.add_argument('-r0', help='Range start', dest='range_start', default=None)
+    parser.add_argument('-r1', help='Range end', dest='range_end', default=None)
     raw_args = parser.parse_args()
     if 's' in vars(raw_args) and raw_args.s:
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), raw_args.s), 'r') as f:
