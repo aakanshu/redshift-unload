@@ -97,3 +97,4 @@ redshift_unload \
 * Supply the query instead of a table name
 * Multiple filters from command line
 * Easier method to specify file output location on S3
+* Submit with non-default ``UNLOAD`` options
