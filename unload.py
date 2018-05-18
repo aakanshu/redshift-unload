@@ -69,7 +69,7 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         )
     ) ORDER BY rn')
     TO '{8}'
-    CREDENTIALS 'aws_access_key_id={6};aws_secret_access_key={7}'
+    CREDENTIALS 'token={};aws_access_key_id={6};aws_secret_access_key={7}'
     {9}
     """
 
