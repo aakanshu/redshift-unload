@@ -30,6 +30,7 @@ For security purposes, your Redshift AWS credentials must be stored in the follo
 * ``DB_PASSWORD``
 * ``AWS_ACCESS_KEY_ID``
 * ``AWS_SECRET_ACCESS_KEY``
+* ``AWS_SESSION_TOKEN``
 
 ## Runtime Parameters
 
@@ -52,13 +53,14 @@ Data Science Configuration:
 
 ```
 alias redshift_unload = 'docker run --rm -i \
--e DB_HOST=$DB_HOST \
--e DB_PORT=$DB_PORT \
--e DB_DATABASE=$DB_DATABASE \
--e DB_USER=$DB_USER \
--e DB_PASSWORD=$DB_PASSWORD \
--e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
--e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+-e DB_HOST \
+-e DB_PORR \
+-e DB_DATABASE \
+-e DB_USER \
+-e DB_PASSWORD \
+-e AWS_ACCESS_KEY_ID \
+-e AWS_SECRET_ACCESS_KEY \
+-e AWS_SESSION_TOKEN \
 docker.gameofloans.com/datascience/redshift-unload:latest $@'
 ```
 
