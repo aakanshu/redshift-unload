@@ -68,9 +68,9 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
             FROM {3}{4} {5}
         )
     ) ORDER BY rn')
-    TO '{8}'
-    CREDENTIALS 'token={};aws_access_key_id={6};aws_secret_access_key={7}'
-    {9}
+    TO '{9}'
+    CREDENTIALS 'aws_access_key_id={6};aws_secret_access_key={7};token={8}'
+    {10}
     """
 
     query = query_tmpl.format(
@@ -82,6 +82,7 @@ def run(config, tablename, file_path, schema_name=None, sql_file=None, range_col
         where_clause,
         config['aws_access_key_id'],
         config['aws_secret_access_key'],
+        config['aws_session_token'],
         file_path,
         unload_options
     )
@@ -96,7 +97,7 @@ def update_config_from_env(config, env):
         if env_val is not None:
             config['db'][key] = env_val
 
-    for key in ('aws_access_key_id', 'aws_secret_access_key'):
+    for key in ('aws_access_key_id', 'aws_secret_access_key', 'aws_session_token'):
         env_val = env.get(key.upper())
         if env_val is not None:
             config[key] = env_val
